@@ -1,0 +1,58 @@
+README
+
+perfMeasure mdoule
+
+The perfMeasure module provides accuarate time measurement between two points: starting and ending in the source code.
+It will be helpful to evaluate real-time performance and also helpful to figure out timing related issues on the source code.
+
+
+How to use perfMeasure module
+
+1. initialization
+
+Need to include "perfMeasure.h" file in the source. and need to call initPerfMeasure() function before to use it.
+
+	#include <perfMeasure.h>
+ 	.....
+	initPerfMeasure();
+
+The initPerfMeasure() does memory allocation, and initialize a linked list. Thus, it should be called at non-real time thread.
+
+
+2. Measurement
+
+After the initialization, Make a handle for the measurement object.
+
+example)	perfParm_ts *pPerf = makePerfMeasur(<string type ID for measurement handle>, "description for the measurement");
+
+		startPerfMeasure(pPerf);
+		myFunction();
+		endPerfMeasure(pPerf);
+
+3. Report
+
+The perfMeasure module support "dbior()" command to report the measurements.
+
+example)	dbior("drvPerfMeasure", 5)
+
+	Driver: drvPerfMeasure
+	Estimated Clock Speed: 2665.116768 MHz
+	Driver has 3 measurement point(s)
+	--------------------------------------------------------------------------------------------
+	    Node name		Enable	Counter	 Time(usec)	Minimum	Maximum	Description
+	--------------------------------------------------------------------------------------------
+	       data_gen		1	45208 		1077.11490711	1040.74689458	2201.84911613	Generate fake image data
+	       mem_copy1 	1	45232 		161.25147129	81.85532530	504.46795283	Memory Copy / memcpy()
+	       mem_copy2	1	45211 		1131.44085700	1077.47811821	2199.51488445	Memory Copy / Variable assignments
+	--------------------------------------------------------------------------------------------
+
+
+4. Device Support
+
+Not Implemented yet.
+
+
+
+
+
+
