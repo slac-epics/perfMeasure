@@ -1,5 +1,8 @@
 RELEASE_NOTES for  perfMeasure module
 -------------------------------------
 
+perfMeasure-R1-0-0: 2014-06-18 K. Kim
+	* first official release
+
 2014-06-17 K. Kim
 	* initial import into CVS respository
