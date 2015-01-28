@@ -1,6 +1,9 @@
 RELEASE_NOTES for  perfMeasure module
 -------------------------------------
 
+perfMeasure-R1-0-1: 2015-01-27 K. Kim
+        * consider for x86_64 patform
+
 perfMeasure-R1-0-0: 2014-06-18 K. Kim
 	* first official release
 
