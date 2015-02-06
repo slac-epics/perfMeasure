@@ -1,5 +1,10 @@
 RELEASE_NOTES for  perfMeasure module
 -------------------------------------
+perfMeasure-R1-1-0: 2015-02-06 K. Kim
+	* implement stress test routine
+	- createStressThreads(nthread, priority)
+	- suspendStressThreads()
+	- resumeStressThreads()
 
 perfMeasure-R1-0-1: 2015-01-27 K. Kim
         * consider for x86_64 patform
