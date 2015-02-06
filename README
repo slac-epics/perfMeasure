@@ -56,6 +56,7 @@ Not Implemented yet.
 5. Stress Test
 
 The module provides stress test threads. These threads run on lower priority then others and eat up cpu cycles.
+You can use the following command in iocsh or cexp in RTEMS
 
 	- createStressThreads(nthread, prioirty)
 
