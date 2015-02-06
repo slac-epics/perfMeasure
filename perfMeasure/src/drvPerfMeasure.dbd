@@ -1,1 +1,2 @@
 driver(drvPerfMeasure)
+registrar(drvPerfMeasure_stressThreadsRegistrar)

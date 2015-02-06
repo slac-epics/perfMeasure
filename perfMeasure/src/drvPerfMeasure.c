@@ -4,6 +4,8 @@
 #include <epicsExport.h>
 
 #include "perfMeasure.h"
+#include "stress.h"
+
 
 static int perfMeasureReport(int interest);
 static int perfMeasureInitialize(void);
@@ -21,6 +23,7 @@ epicsExportAddress(drvet, drvPerfMeasure);
 static int perfMeasureReport(int interest)
 {
     reportPerfMeasure(interest);
+    reportStressThreads(interest);
 
     return 0;
 }
@@ -29,6 +32,7 @@ static int perfMeasureReport(int interest)
 static int perfMeasureInitialize(void)
 {
     initPerfMeasure();
+    initStress_perfMeasure();
 
     return 0;
 }

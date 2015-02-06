@@ -28,6 +28,7 @@ DBD += drvPerfMeasure.dbd
 LIBRARY_IOC = perfMeasure
 
 perfMeasure_SRCS += perfMeasure.c
+perfMeasure_SRCS += stress.c
 perfMeasure_SRCS += drvPerfMeasure.c
 perfMeasure_LIBS += $(EPICS_BASE_IOC_LIBS)
 
