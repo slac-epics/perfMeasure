@@ -1,32 +1,17 @@
-#RELEASE Location of external products
+# RELEASE
+# Defines location of external products
 # Run "gnumake clean uninstall install" in the application
 # top directory each time this file is changed.
+-include $(TOP)/configure/RELEASE.local
 
-# =============================================================
-# Define the top of the EPICS tree for your site.
-# We will build some tools/scripts that allow us to
-# change this easily when relocating software.
-# ==============================================================
-include $(TOP)/RELEASE_SITE
-#EPICS_SITE_TOP=/afs/slac/g/lcls/epics
-TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+# Check for valid macro definitions for module release directories
+# You can add tests here to make sure RELEASE.local defined valid
+# macros for all the module dependencies
+#ifeq ($(wildcard $(EPICS_BASE)/include),)
+#$(error Invalid EPICS_BASE: $(EPICS_BASE))
+#endif
+#ifeq ($(wildcard $(ASYN)/include),)
+#$(error Invalid ASYN: $(ASYN))
+#endif
+#...
 
-
-# =============================================================
-# Define location of module tree with respect to
-# EPICS_SITE_TOP
-# =============================================================
-EPICS_MODULES=$(MODULES_SITE_TOP)
-
-# ==============================================================
-# Define the version of EPICS BASE that you will use
-# =============================================================
-BASE_MODULE_VERSION=$(EPICS_BASE_VER)
-
-# =================================================================
-# Define EPICS_BASE
-# EPICS_BASE usually appears last so other apps can override stuff:
-# =================================================================
-EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
-
-# End of file
