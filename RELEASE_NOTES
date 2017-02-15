@@ -1,5 +1,8 @@
 RELEASE_NOTES for  perfMeasure module
 -------------------------------------
+R1.3.0: Marcio Donadio, 02/15/2017
+        Updated to new git workflow base build support
+
 R1.2.0: Marcio Donadio, 02/15/2017
         Creating new release R1.2.0 to avoid confusion w/ prior pcds R1-1* releases
 
