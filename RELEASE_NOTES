@@ -1,5 +1,8 @@
 RELEASE_NOTES for  perfMeasure module
 -------------------------------------
+R1.5.0: Hugo Slepicka, 05/03/2017
+        Building for all the cross targets
+
 R1.4.0: Kukhee Kim, 03/29/2017
         Add linuxRT-x86_64 as a target
 
