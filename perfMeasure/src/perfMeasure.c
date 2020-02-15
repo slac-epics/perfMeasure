@@ -63,6 +63,7 @@ static void  Get_clockTicksPerUsec(void)
       MFTB(start);
       epicsThreadSleep(1.);
       MFTB(stop);
+      if(initialized) printf("Get_clock Ticks: start %u, stop %u\n", start, stop);
     } while(!(stop>start));
 
     clockTicksPerSec  = (double)(stop-start);
