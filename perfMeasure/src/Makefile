@@ -6,7 +6,6 @@ include $(TOP)/configure/CONFIG
 # build a library
 
 # for gdb/ddd debugger:
-USR_CFLAGS += -O
 USR_CFLAGS_solaris-sparc-gnu += -g
 USR_CFLAGS_linux-x86 += -g
 # for debug print statements and slc-awareness

@@ -57,13 +57,12 @@ static ELLLIST perfParm_s;
 
 static void  Get_clockTicksPerUsec(void)
 {
-    unsigned start, stop;
+    volatile unsigned start, stop;
 
     do {
       MFTB(start);
       epicsThreadSleep(1.);
       MFTB(stop);
-      if(initialized) printf("Get_clock Ticks: start %u, stop %u\n", start, stop);
     } while(!(stop>start));
 
     clockTicksPerSec  = (double)(stop-start);
