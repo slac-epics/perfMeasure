@@ -1,7 +1,7 @@
 RELEASE_NOTES for  perfMeasure module
 -------------------------------------
 R1.5.1: Kukhee Kim,    02/14/2020
-        solve compiler issue
+        Improve rdtsc() inline assembly function to support new compiler
 
 R1.5.0: Hugo Slepicka, 05/03/2017
         Building for all the cross targets

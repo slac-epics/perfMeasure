@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdlib.h>
 #include <stddef.h>             /* size_t                      */
 #include <string.h>             /* strcmp                      */
@@ -39,14 +40,23 @@
 
 #if defined(i386) || defined(__i386) || defined(__i386__) || defined(_M_IX86) || defined(_X86_)  /*  for 32bits */ \
      || defined(__x86_64) || defined(__x86_64__) || defined(_M_X64)                              /*  for 64bits */
-__inline__ static unsigned long long int rdtsc(void)
+/* __inline__ static unsigned long long int rdtsc(void)
 {
         unsigned long long int x;
         __asm__ volatile (".byte 0x0f, 0x31": "=A" (x));
         return x;
+} */
+
+__inline__ static uint64_t rdtsc(void)
+{
+    uint32_t lo, hi;
+    
+    __asm__ __volatile__("rdtsc" : "=a"(lo), "=d"(hi));
+
+    return (((uint64_t)hi) << 32) | ((uint64_t)lo);
 }
 
-#define MFTB(var)  ((var)=(unsigned) rdtsc())
+#define MFTB(var)  ((var)=(uint32_t) rdtsc())
 #endif
 
 static int    initialized = 0;
@@ -57,7 +67,7 @@ static ELLLIST perfParm_s;
 
 static void  Get_clockTicksPerUsec(void)
 {
-    volatile unsigned start, stop;
+    uint32_t start, stop;
 
     do {
       MFTB(start);
